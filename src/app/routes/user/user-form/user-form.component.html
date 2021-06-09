@@ -1,0 +1,60 @@
+
+<div class="card border-dark mb-3">
+    <div class="card-header">
+        <div class="card-title mb-0">Edit User</div>
+    </div>
+    <div class="card-body">
+        <form id="form" #form="ngForm" autocomplete="off" (ngSubmit)="save(form)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label >Slot</label>
+                        <select class="form-control form-control"  disabled="">
+                            <option text="user.slot">0</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label >Type</label>
+                        <select class="form-control form-control"  disabled="">
+                            <option text="user.type">0</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Permissions</label>
+                        <input type="number" min="0" max="65535" class="form-control" placeholder="65535"
+                            name="permissions"  #permissions="ngModel" [(ngModel)]="user.permissions"
+                            required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" placeholder="Name" 
+                            name="userName" #userName="ngModel" [(ngModel)]="user.userName"
+                            required minlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" 
+                            name="password" placeholder="Password" #password="ngModel" [(ngModel)]="user.password"
+                            required minlength="3">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" checked=""
+                            name="enabled" #enabled="ngModel" [(ngModel)]="user.enabled"
+                            required>
+                        <label class="custom-control-label" for="customCheck1">Enabled</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-action d-flex justify-content-end">
+        <a routerLink="/users" class="btn btn-danger mr-3">Cancel</a>
+        <button form="form" class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</div>
+
+

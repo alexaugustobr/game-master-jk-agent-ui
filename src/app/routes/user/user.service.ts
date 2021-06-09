@@ -1,0 +1,80 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+import { environment } from '../../../environments/environment';
+import { User } from './../../core/model';
+
+export class UserFilter {
+  name: string;
+  page = 0;
+  itensPerPage = 5;
+}
+
+@Injectable()
+export class UserService {
+
+  url: string;
+
+  constructor(private http: HttpClient) {
+    this.url = `${environment.apiUrl}/api/v1/users`;
+  }
+
+  filter(filter: UserFilter): Promise<any> {
+    let params = new HttpParams()
+      .set('page', filter.page.toString())
+      .set('size', filter.itensPerPage.toString());
+
+    if (filter.name) {
+      params = params.set('name', filter.name);
+    }
+
+    return this.http.get(`${this.url}`, { params })
+      .toPromise()
+      .then(response => {
+        const users = response['content'];
+
+        const resultado = {
+          users,
+          total: response['totalElements']
+        };
+
+        return resultado;
+      })
+  }
+
+  findAll(): Promise<any> {
+    return this.http.get(this.url)
+      .toPromise();
+  }
+
+  disable(slot: number): Promise<void> {
+    return this.http.delete(`${this.url}/${slot}/enable`)
+      .toPromise()
+      .then(() => null);
+  }
+
+  enable(slot: number): Promise<void> {
+    const headers = new HttpHeaders()
+        .append('Content-Type', 'application/json');
+
+    return this.http.put(`${this.url}/${slot}/enable`, { headers })
+      .toPromise()
+      .then(() => null);
+  }
+
+  add(user: User): Promise<User> {
+    return this.http.post<User>(this.url, user)
+      .toPromise();
+  }
+
+  update(user: User): Promise<User> {
+    return this.http.put<User>(`${this.url}/${user.slot}`, user)
+      .toPromise();
+  }
+
+  findBySlot(slot: number): Promise<User> {
+    return this.http.get<User>(`${this.url}/${slot}`)
+      .toPromise();
+  }
+
+}

@@ -1,0 +1,25 @@
+<div class="page-header">
+    <div class="" style="/*! justify-content: space-around; */width: 100%;">
+        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row" style="/*! justify-content: space-around; */width: 100%;">
+            <h4 class="page-title">{{title}}</h4>
+            <ul class="breadcrumbs">
+                <li class="nav-home">
+                    <a routerLink="/">
+                        <i class="flaticon-home"></i>
+                    </a>
+                </li>
+                <ng-template ngFor let-link [ngForOf]="links">
+                    <li class="separator">
+                        <i class="flaticon-right-arrow"></i>
+                    </li>
+                    <li class="nav-item" >
+                        <a routerLink="{{ link.href }}">{{ link.description }}</a>
+                    </li>
+                </ng-template>
+            </ul>
+            <ng-content></ng-content>
+        </div>
+    </div>
+
+</div>
+
