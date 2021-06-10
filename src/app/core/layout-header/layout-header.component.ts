@@ -1,4 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { LogoutService } from 'app/security/logout.service';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-layout-header',
@@ -34,9 +37,22 @@ export class LayoutHeaderComponent implements OnInit {
     this.showMenuChange.emit(this.showMenuValue);
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  logout() {
+    this.logoutService.logout()
+      // .then(() => {
+      //   this.router.navigate(['/login']);
+      // })
+      // .catch(erro => this.errorHandler.handle(erro));
   }
+
+  constructor(
+    private logoutService: LogoutService,
+    private errorHandler: ErrorHandlerService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+  }
+
 
 }
