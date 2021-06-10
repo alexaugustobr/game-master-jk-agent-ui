@@ -3,19 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AuthGuard } from '../../security/auth.guard';
 
-import { UserListPageComponent } from './user-list-page/user-list-page.component';
-
-import { UserFormPageComponent } from "./user-form-page/user-form-page.component";
+import { PluginEloPageComponent } from "./plugin-elo-page/plugin-elo-page.component";
+import { PluginRtvPageComponent } from "./plugin-rtv-page/plugin-rtv-page.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: UserListPageComponent,
+    path: 'elo',
+    component: PluginEloPageComponent,
      canActivate: [AuthGuard]
   },
   {
-    path: ':slot',
-    component: UserFormPageComponent,
+    path: 'rtv',
+    component: PluginRtvPageComponent,
      canActivate: [AuthGuard],
     // data: { roles: ['ROLE_CADASTRAR_PESSOA'] }
   }
@@ -27,4 +26,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class UserRoutingModule { }
+export class PluginRoutingModule { }

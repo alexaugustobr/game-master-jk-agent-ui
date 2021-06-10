@@ -10,8 +10,9 @@ import { UserListComponent } from "./user-list/user-list.component";
 import { UserListPageComponent } from './user-list-page/user-list-page.component';
 import { UserFormPageComponent } from './user-form-page/user-form-page.component';
 
-import { UserRoutingModule } from './user-roting-module'
-
+import { UserRoutingModule } from './user-roting-module';
+import { UserPasswordChangeComponent } from './user-password-change/user-password-change.component';
+import { UserEnableDisableComponent } from './user-enable-disable/user-enable-disable.component'
 
 @NgModule({
   imports: [
@@ -25,13 +26,12 @@ import { UserRoutingModule } from './user-roting-module'
     UserFormComponent,
     UserListComponent,
     UserListPageComponent,
-    UserFormPageComponent
+    UserFormPageComponent,
+    UserPasswordChangeComponent,
+    UserEnableDisableComponent
   ],
   exports: [
-    UserFormComponent,
-    UserListComponent,
-    UserListPageComponent,
-    UserFormPageComponent
+    
   ]
 })
 export class UserModule { }

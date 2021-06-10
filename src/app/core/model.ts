@@ -3,7 +3,10 @@ export class User {
   userName: string;
   type: string;
   permissions: number;
-  password: string;
   enabled: boolean;
   authdata?: string;
+}
+
+export class UserPasswordUpdate {
+  password: string;
 }

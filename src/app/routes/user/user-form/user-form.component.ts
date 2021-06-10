@@ -40,7 +40,7 @@ export class UserFormComponent implements OnInit {
   }
 
   save(form: FormControl): void {
-    this.userService.update(this.user)
+    this.userService.update(this.user.slot, this.user)
       .then(response => {
         this.messageService.add({ severity: 'success', detail: 'User updated!' });
         this.router.navigate(['/users']);

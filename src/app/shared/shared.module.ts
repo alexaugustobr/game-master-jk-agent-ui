@@ -7,16 +7,18 @@ import { ModalComponent } from './modal/modal.component';
 import { NgbdModalFocusComponent } from './ngbd-modal-focus/ngbd-modal-focus.component';
 
 import { PageHeaderComponent } from "./page-header/page-header.component";
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    NgbModalModule
   ],
   declarations: [
     MessageComponent, 
     ModalComponent,
     NgbdModalFocusComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
   ],
   exports: [
     MessageComponent, 

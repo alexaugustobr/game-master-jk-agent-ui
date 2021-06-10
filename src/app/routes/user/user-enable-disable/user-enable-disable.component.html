@@ -1,0 +1,22 @@
+<button (click)="openModal()" *ngIf="userEnabled && !actionDisabled" class="btn btn-danger mr-3">
+    <span class="btn-label"><i class="fas fa-user-lock"></i></span>
+     Disable
+</button>
+<button (click)="openModal()" *ngIf="!userEnabled  && !actionDisabled" class="btn btn-info mr-3">
+    <span class="btn-label"><i class="fas fa-user-lock"></i></span>
+     Enable
+</button>
+
+<button (click)="openModal()" *ngIf="userEnabled && actionDisabled" disabled class="btn btn-danger mr-3">
+    <span class="btn-label"><i class="fas fa-user-lock"></i></span>
+     Disable
+</button>
+<button (click)="openModal()" *ngIf="!userEnabled  && actionDisabled" disabled class="btn btn-info mr-3">
+    <span class="btn-label"><i class="fas fa-user-lock"></i></span>
+     Enable
+</button>
+
+<modal #modal [modalConfig]="modalConfig">
+    <p *ngIf="userEnabled">Are you sure, you want to disable this user?</p>
+    <p *ngIf="!userEnabled">Are you sure you want to enable this user? </p>
+</modal>

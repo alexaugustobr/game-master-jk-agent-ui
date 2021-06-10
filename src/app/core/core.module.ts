@@ -28,7 +28,6 @@ registerLocaleData(localePt);
     CommonModule,
     RouterModule,
     HttpClientModule,
-
     ToastModule,
     ConfirmDialogModule,
   ],
@@ -47,15 +46,9 @@ registerLocaleData(localePt);
     ForbiddenComponent
   ],
   providers: [
-    // LancamentoService,
-    // PessoaService,
-    // CategoriaService,
-    // DashboardService,
-    // RelatoriosService,
     UserService,
     ErrorHandlerService,
     AuthService,
-
     ConfirmationService,
     MessageService,
     Title,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
-import { User } from './../../core/model';
+import { User, UserPasswordUpdate } from './../../core/model';
 
 export class UserFilter {
   name: string;
@@ -47,17 +47,14 @@ export class UserService {
       .toPromise();
   }
 
-  disable(slot: number): Promise<void> {
-    return this.http.delete(`${this.url}/${slot}/enable`)
+  enable(slot: number) {
+    return this.http.put(`${this.url}/${slot}/enable`, {})
       .toPromise()
       .then(() => null);
   }
 
-  enable(slot: number): Promise<void> {
-    const headers = new HttpHeaders()
-        .append('Content-Type', 'application/json');
-
-    return this.http.put(`${this.url}/${slot}/enable`, { headers })
+  disable(slot: number) {
+    return this.http.delete(`${this.url}/${slot}/enable`)
       .toPromise()
       .then(() => null);
   }
@@ -67,8 +64,13 @@ export class UserService {
       .toPromise();
   }
 
-  update(user: User): Promise<User> {
-    return this.http.put<User>(`${this.url}/${user.slot}`, user)
+  update(slot : number, user: User): Promise<User> {
+    return this.http.put<User>(`${this.url}/${slot}`, user)
+      .toPromise();
+  }
+
+  updatePassword(slot: number, user: UserPasswordUpdate): Promise<Response> {
+    return this.http.put<Response>(`${this.url}/${slot}/password`, user)
       .toPromise();
   }
 

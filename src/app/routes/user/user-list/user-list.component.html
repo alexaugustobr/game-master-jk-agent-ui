@@ -15,14 +15,8 @@
                 <td>{{ user.userName }}</td>
                 <td>{{ user.type }}</td>
                 <td>
-                    <button *ngIf="user.enabled" class="btn btn-danger mr-3">
-                        <span class="btn-label"><i class="fas fa-user-lock"></i></span>
-                         Disable
-                    </button>
-                    <button *ngIf="!user.enabled" class="btn btn-info mr-3">
-                        <span class="btn-label"><i class="fas fa-user-lock"></i></span>
-                         Enable
-                    </button>
+                    <app-user-password-change [user]="user"></app-user-password-change>
+                    <app-user-enable-disable [user]="user" (updateUserList)="updateUserList()"></app-user-enable-disable>
                     <a [routerLink]="['/users', user.slot]" class="btn btn-secondary mr-3">
                         <span class="btn-label"><i class="fas fa-pen"></i></span>
                          Edit

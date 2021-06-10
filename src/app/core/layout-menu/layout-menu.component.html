@@ -39,64 +39,64 @@
                 </div>
             </div> -->
                 <ul class="nav nav-primary">
-                    <li class="nav-item">
-                        <a routerLink="/">
+                    <li class="nav-item" routerLinkActive="active">
+                        <a routerLink="/overview" >
                             <i class="fas fa-columns"></i>
                             <p>Overview</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active">
                         <a data-toggle="collapse">
                             <i class="fas fa-th-list"></i>
                             <p>Plugins</p>
                             <span class="caret"></span>
                         </a>
                         <div class="collapse show" id="pluginsSubMenu">
-                            <ul class="nav nav-collapse">
-                                <li>
-                                    <a routerLink="/plugins/rtv">
+                            <ul class="nav nav-collapse"  >
+                                <li routerLinkActive="active">
+                                    <a routerLink="/plugins/rtv" >
                                         <span class="sub-item">RTV</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a routerLink="/plugins/elo">
+                                <li  routerLinkActive="active">
+                                    <a routerLink="/plugins/elo" >
                                         <span class="sub-item">ELO</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/players">
                             <i class="fas fa-th-list"></i>
                             <p>Players</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/maps">
                             <i class="fas fa-th-list"></i>
                             <p>Maps</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/config">
                             <i class="fas fa-cogs"></i>
                             <p>Config</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/update">
                             <i class="fas fa-th-list"></i>
                             <p>Updates</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a routerLink="/users">
+                    <li class="nav-item" routerLinkActive="active">
+                        <a routerLink="/users" >
                             <i class="fas fa-user"></i>
                             <p>Users</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/power-options">
                             <i class="fas fa-power-off"></i>
                             <p>Power options</p>
