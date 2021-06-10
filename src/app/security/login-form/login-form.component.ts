@@ -19,8 +19,8 @@ export class LoginFormComponent {
     private router: Router
   ) { }
 
-  login(usuario: string, senha: string) {
-    this.auth.login(usuario, senha)
+  login(username: string, password: string) {
+    this.auth.login(username, password)
     .pipe(first())
             .subscribe(
                 data => {
