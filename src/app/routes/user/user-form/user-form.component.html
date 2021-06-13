@@ -23,7 +23,13 @@
                         <label>Password</label>
                         <input type="password" class="form-control" placeholder="" 
                             name="password" #password="ngModel" [(ngModel)]="user.password" [disabled]="canNotChangePassword"
-                            required minlength="3">
+                            required minlength="3" maxlength="25" [class.is-invalid]="password.invalid && password.touched">
+                        <div *ngIf="password.hasError('required') && password.touched"
+                            class="invalid-feedback">The password must not be blank.</div>
+                        <div *ngIf="password.hasError('minlength') && password.touched"
+                            class="invalid-feedback">The password must contain at least 3 characters.</div>
+                            <div *ngIf="password.hasError('maxlength') && password.touched"
+                            class="invalid-feedback">The password must only contain a maximum of 25 characters.</div>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -35,9 +41,15 @@
                     </div>
                     <div class="form-group">
                         <label>Permissions</label>
-                        <input type="number" min="0" max="65535" class="form-control" placeholder="65535"
-                            name="permissions"  #permissions="ngModel" [(ngModel)]="user.permissions"
-                            required>
+                        <input type="number" [min]="0" [max]="65535" class="form-control" placeholder="65535"
+                            name="permissions"  #permissions="ngModel" [(ngModel)]="user.permissions" required
+                            [class.is-invalid]="permissions.invalid && permissions.touched">
+                        <div *ngIf="permissions.hasError('required') && permissions.touched"
+                            class="invalid-feedback">The permissions must be a number.</div>
+                        <div *ngIf="permissions.hasError('min') && permissions.touched"
+                            class="invalid-feedback">The permissions must be bigger than 0.</div>
+                        <div *ngIf="permissions.hasError('max') && permissions.touched"
+                            class="invalid-feedback">The permissions must be lesser than 65535.</div>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-switch">
@@ -53,7 +65,7 @@
     </div>
     <div class="card-action d-flex justify-content-end">
         <a routerLink="/users" class="btn btn-danger mr-3">Cancel</a>
-        <button form="form" class="btn btn-primary" type="submit">Submit</button>
+        <button form="form" class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
     </div>
 </div>
 

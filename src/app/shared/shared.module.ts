@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { MessageComponent } from './message/message.component';
 import { ModalComponent } from './modal/modal.component';
 
@@ -13,12 +13,15 @@ import { ToastsContainer } from "./toast/toasts-container.component";
 import { NgbdToastGlobal } from './toast/toast-global.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MinDirective } from './validators/min.directive';
+import { MaxDirective } from './validators/max.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModalModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   declarations: [
     MessageComponent, 
@@ -26,7 +29,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbdModalFocusComponent,
     PageHeaderComponent,
     ToastsContainer,
-    NgbdToastGlobal
+    NgbdToastGlobal,
+    MinDirective,
+    MaxDirective,
   ],
   exports: [
     MessageComponent, 
@@ -34,7 +39,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbdModalFocusComponent,
     PageHeaderComponent,
     ToastsContainer,
-    NgbdToastGlobal
+    NgbdToastGlobal,
+    MinDirective,
+    MaxDirective
   ]
 })
 export class SharedModule { }
