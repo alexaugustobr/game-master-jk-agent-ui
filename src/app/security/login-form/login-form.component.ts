@@ -13,6 +13,8 @@ import { AuthService } from '../auth.service';
 })
 export class LoginFormComponent {
 
+  error = false;
+
   constructor(
     private auth: AuthService,
     private errorHandler: ErrorHandlerService,
@@ -20,14 +22,16 @@ export class LoginFormComponent {
   ) { }
 
   login(username: string, password: string) {
+    this.error = false;
     this.auth.login(username, password)
     .pipe(first())
             .subscribe(
                 data => {
+                   this.error = false;
                    this.router.navigate(['/overview'], { replaceUrl: true });
                 },
                 error => {
-                  console.log('error')
+                   this.error = true;
                 });
   }
 

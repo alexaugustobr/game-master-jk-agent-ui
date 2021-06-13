@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageComponent } from './message/message.component';
 import { ModalComponent } from './modal/modal.component';
 
@@ -23,7 +23,8 @@ import { RouterModule } from '@angular/router';
     NgbModalModule,
     NgbModule,
     FormsModule,
-    RouterModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     MessageComponent, 

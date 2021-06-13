@@ -1,1 +1,33 @@
-<p>game-logs-list works!</p>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let log of gameLogs">
+                <td>{{ log.date }}</td>
+                <td>{{ log.name }}</td>
+                <td>
+                    <!-- <app-user-password-change [user]="user"></app-user-password-change>
+                    <app-user-enable-disable [user]="user" (updateUserList)="updateUserList()"></app-user-enable-disable>
+                    <a [routerLink]="['/users', user.slot]" class="btn btn-secondary mr-3">
+                        <span class="btn-label"><i class="fas fa-pen"></i></span>
+                         Edit
+                    </a> -->
+                    <a class="btn btn-info mr-3">
+                        <span class="btn-label"><i class="fas fa-file-download"></i></span>
+                         Download
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+
+

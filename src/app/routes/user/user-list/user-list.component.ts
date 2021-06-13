@@ -1,11 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from "./../user.service";
-
-import { ModalConfig } from 'app/shared/modal/modal.config';
-import { ModalComponent } from 'app/shared/modal/modal.component';
 
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 

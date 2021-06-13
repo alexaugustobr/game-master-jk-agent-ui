@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameLogsListComponent implements OnInit {
 
+  gameLogs: any = [
+    {
+      date: "2020-01-01 10:13",
+      name: "log.txt"
+    },
+    {
+      date: "2020-01-01 10:13",
+      name: "log-292929.zip"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

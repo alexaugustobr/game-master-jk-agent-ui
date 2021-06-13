@@ -6,6 +6,7 @@ import { LogRoutingModule } from './log.routing.module';
 import { GameLogsPageComponent } from './game-logs-page/game-logs-page.component';
 import { AdminLogsPageComponent } from './admin-logs-page/admin-logs-page.component';
 import { GameLogsListComponent } from './game-logs-list/game-logs-list.component';
+import { CommonModule } from "@angular/common";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { GameLogsListComponent } from './game-logs-list/game-logs-list.component
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    LogRoutingModule
+    LogRoutingModule,
+    CommonModule
   ],
   declarations: [
     GameLogsPageComponent,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppLayoutComponent } from './app-layout.component';
+import { CleanLayoutComponent } from './clean-layout.component';
 
 import { ForbiddenComponent } from './core/forbidden.component';
 import { PageNotFoundComponent } from './core/page-not-found';
@@ -26,7 +27,13 @@ const routes: Routes = [
       { path: 'logs', canActivate: [AuthGuard], 
         loadChildren: () => import('app/routes/log/log.module').then(m => m.LogModule) 
       },
-      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: '', redirectTo: 'overview', pathMatch: 'full' }
+    ]
+  },
+  {
+    path: '',
+    component: CleanLayoutComponent, 
+    children: [
       { path: 'forbidden', component: ForbiddenComponent },
       { path: 'page-not-found', component: PageNotFoundComponent },
       { path: '**', redirectTo: 'page-not-found' },

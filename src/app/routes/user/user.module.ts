@@ -16,10 +16,10 @@ import { UserEnableDisableComponent } from './user-enable-disable/user-enable-di
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
     UserRoutingModule
   ],
   declarations: [
