@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 
-import { MessageService, ConfirmationService } from 'primeng/api';
-
 import { AuthService } from '../security/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
 import { ForbiddenComponent } from './forbidden.component';
@@ -19,6 +17,7 @@ import { LayoutMenuComponent } from './layout-menu/layout-menu.component'
 
 import { UserService } from "./../routes/user/user.service";
 import { ToastService } from 'app/shared/toast/toast.service';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localePt);
 
@@ -26,7 +25,8 @@ registerLocaleData(localePt);
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     PageNotFoundComponent,
@@ -45,8 +45,6 @@ registerLocaleData(localePt);
     UserService,
     ErrorHandlerService,
     AuthService,
-    ConfirmationService,
-    MessageService,
     ToastService,
     Title,
     { provide: LOCALE_ID, useValue: 'en-US' }

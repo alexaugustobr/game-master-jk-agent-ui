@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-
 import { AuthGuard } from './auth.guard';
 import { LogoutService } from './logout.service';
 import { SecurityRoutingModule } from './security-routing.module';
@@ -22,9 +19,6 @@ export function tokenGetter(): string {
   imports: [
     CommonModule,
     FormsModule,
-
-    InputTextModule,
-    ButtonModule,
 
     SecurityRoutingModule
   ],

@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from "./../user.service";
 
-import { MessageService } from 'primeng/api';
-
 import { ModalConfig } from 'app/shared/modal/modal.config';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -22,7 +20,6 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
     private router: Router,
