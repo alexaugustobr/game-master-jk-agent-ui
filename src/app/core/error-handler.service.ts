@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-
-import { MessageService } from 'primeng/api';
+import { ToastService } from 'app/shared/toast/toast.service';
 
 @Injectable()
 export class ErrorHandlerService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private toastService: ToastService) { }
 
   handle(errorResponse: any) {
     let msg: string;
@@ -33,7 +32,7 @@ export class ErrorHandlerService {
       console.error('Ocorreu um erro', errorResponse);
     }
 
-    this.messageService.add({ severity:'error', detail: msg });
+    this.toastService.showDanger(msg);
   }
 
 }

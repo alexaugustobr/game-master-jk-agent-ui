@@ -20,16 +20,12 @@ export class LayoutMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
 
   logout() {
     this.logoutService.logout()
-      .then(() => {
-        this.router.navigate(['/login']);
-      })
-      .catch(erro => this.errorHandler.handle(erro));
+    //.catch(erro => this.errorHandler.handle(erro));
   }
-
-  
 
 }

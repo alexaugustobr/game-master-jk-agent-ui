@@ -4,7 +4,7 @@
             <thead>
             <tr>
                 <th scope="col">Slot</th>
-                <th scope="col">Name</th>
+                <th scope="col">Username</th>
                 <th scope="col">Type</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -12,7 +12,7 @@
             <tbody>
             <tr *ngFor="let user of users">
                 <td>{{ user.slot }}</td>
-                <td>{{ user.userName }}</td>
+                <td>{{ user.username }}</td>
                 <td>{{ user.type }}</td>
                 <td>
                     <app-user-password-change [user]="user"></app-user-password-change>

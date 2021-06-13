@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import { User, UserPasswordUpdate } from './../../core/model';
@@ -49,14 +49,12 @@ export class UserService {
 
   enable(slot: number) {
     return this.http.put(`${this.url}/${slot}/enable`, {})
-      .toPromise()
-      .then(() => null);
+      .toPromise();
   }
 
   disable(slot: number) {
     return this.http.delete(`${this.url}/${slot}/enable`)
-      .toPromise()
-      .then(() => null);
+      .toPromise();
   }
 
   add(user: User): Promise<User> {

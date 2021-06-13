@@ -8,6 +8,7 @@ import { SecurityModule } from './security/security.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CleanLayoutComponent } from './clean-layout.component';
 import { AppLayoutComponent } from './app-layout.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AppLayoutComponent } from './app-layout.component';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
+    SharedModule,
     SecurityModule,
     AppRoutingModule
   ],

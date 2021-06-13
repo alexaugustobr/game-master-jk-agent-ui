@@ -7,9 +7,9 @@ import { User } from "app/core/model";
 
 import { UserService } from "./../user.service";
 
-import { MessageService } from 'primeng/api';
-
 import { ErrorHandlerService } from './../../../core/error-handler.service';
+import { AuthService } from 'app/security/auth.service';
+import { ToastService } from 'app/shared/toast/toast.service';
 
 @Component({
   selector: 'app-user-form',
@@ -20,13 +20,17 @@ export class UserFormComponent implements OnInit {
 
   user = new User();
 
+  canNotEnable: boolean; 
+  canNotChangePassword: boolean;
+
   constructor(
     private userService: UserService,
-    private messageService: MessageService,
+    private toastService: ToastService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
     private router: Router,
-    private title: Title
+    private title: Title,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +38,13 @@ export class UserFormComponent implements OnInit {
     this.userService.findBySlot(slot)
     .then(user => {
       this.user = user;
+      if (this.authService.isUserAuthenticated(this.user.slot)) {
+        this.canNotEnable = true;
+        this.canNotChangePassword = true;
+      } else {
+        this.canNotEnable = false;
+        this.canNotChangePassword = false;
+      }
     })
     .catch(erro => this.errorHandler.handle(erro));
     //TODO 404
@@ -41,11 +52,12 @@ export class UserFormComponent implements OnInit {
 
   save(form: FormControl): void {
     this.userService.update(this.user.slot, this.user)
-      .then(response => {
-        this.messageService.add({ severity: 'success', detail: 'User updated!' });
+      .then(()=>{
         this.router.navigate(['/users']);
+        this.toastService.showSuccess('User updated.');
+      }).catch((err)=>{
+        this.errorHandler.handle(err)
       })
-      .catch(erro => this.errorHandler.handle(erro));
     
   }
 

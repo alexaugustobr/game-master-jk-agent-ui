@@ -9,22 +9,32 @@ import { NgbdModalFocusComponent } from './ngbd-modal-focus/ngbd-modal-focus.com
 import { PageHeaderComponent } from "./page-header/page-header.component";
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ToastsContainer } from "./toast/toasts-container.component";
+import { NgbdToastGlobal } from './toast/toast-global.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     CommonModule,
-    NgbModalModule
+    NgbModalModule,
+    NgbModule
   ],
   declarations: [
     MessageComponent, 
     ModalComponent,
     NgbdModalFocusComponent,
     PageHeaderComponent,
+    ToastsContainer,
+    NgbdToastGlobal
   ],
   exports: [
     MessageComponent, 
     ModalComponent,
     NgbdModalFocusComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    ToastsContainer,
+    NgbdToastGlobal
   ]
 })
 export class SharedModule { }

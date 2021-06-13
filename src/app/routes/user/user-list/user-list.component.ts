@@ -34,9 +34,8 @@ export class UserListComponent implements OnInit {
   }
 
   updateUserList() {
-    console.log('updateUserList')
     this.userService.findAll()
-                    .then(users => this.users = users)
+        .then(users => this.users = users)
   }
 
 }

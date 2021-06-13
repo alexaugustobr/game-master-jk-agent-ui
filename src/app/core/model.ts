@@ -1,7 +1,8 @@
 export class User {
   slot: number;
-  userName: string;
+  username: string;
   type: string;
+  password: string;
   permissions: number;
   enabled: boolean;
   authdata?: string;

@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ErrorHandler, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 import { ModalConfig } from 'app/shared/modal/modal.config';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { User, UserPasswordUpdate } from 'app/core/model';
 import { UserService } from '../user.service';
 import { AuthService } from 'app/security/auth.service';
+import { ToastService } from 'app/shared/toast/toast.service';
 
 @Component({
   selector: 'app-user-password-change',
@@ -17,6 +18,8 @@ export class UserPasswordChangeComponent implements OnInit {
 
   @ViewChild('modal') private modalComponent!: ModalComponent;
 
+  @Output() updateUserList = new EventEmitter();
+
   enabled: boolean;
 
   private userPasswordUpdate = new UserPasswordUpdate()
@@ -28,9 +31,7 @@ export class UserPasswordChangeComponent implements OnInit {
     shouldConfirm: () => true,
     shouldDismiss: () => true,
     onConfirm: async () => {
-      await this.userService.updatePassword(this.user.slot, this.userPasswordUpdate)
-      //TODO FIX ME await this.authService.login(this.user.userName, this.userPasswordUpdate.password)
-      return await true
+      return await this.updatePassword()
     },
     onDismiss:() => true,
     disableConfirmButton: () => false,
@@ -39,7 +40,10 @@ export class UserPasswordChangeComponent implements OnInit {
     hideDismissButton: () => false,
   }
  
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
+    private errorHandler: ErrorHandler,
+    private toastService: ToastService,
     private authService: AuthService) {
   }
 
@@ -53,6 +57,17 @@ export class UserPasswordChangeComponent implements OnInit {
 
   async openModal() {
     return await this.modalComponent.open()
+  }
+
+  async updatePassword() {
+    await this.userService.updatePassword(this.user.slot, this.userPasswordUpdate).then(()=>{
+      this.toastService.showSuccess('User password updated.');
+    }).catch((err)=>{
+      this.errorHandler.handleError(err);
+    })
+    this.updateUserList.emit();
+    //TODO FIX ME await this.authService.login(this.user.userName, this.userPasswordUpdate.password)
+    return await true
   }
 
 

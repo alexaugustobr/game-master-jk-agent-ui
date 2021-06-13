@@ -5,7 +5,9 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
 import { User } from 'app/core/model';
 import { UserService } from '../user.service';
 import { AuthService } from 'app/security/auth.service';
-import { Router } from '@angular/router';
+
+import { ToastService } from 'app/shared/toast/toast.service';
+import { ErrorHandlerService } from 'app/core/error-handler.service';
 
 @Component({
   selector: 'app-user-enable-disable',
@@ -24,19 +26,13 @@ export class UserEnableDisableComponent implements OnInit {
   @Output() updateUserList = new EventEmitter();
 
   modalConfig : ModalConfig = {
-    modalTitle: this.user ? "Disable user?" : "Enable user?",
+    modalTitle: this.user.enabled ? "Enable user?" : "Disable user?",
     dismissButtonLabel: "No",
     confirmButtonLabel: "Yes",
     shouldConfirm: () => true,
     shouldDismiss: () => true,
     onConfirm: async () => {
-      if (!this.user.enabled) {
-        await this.userService.enable(this.user.slot)
-      } else if (this.user.enabled) {
-        await this.userService.disable(this.user.slot)
-      }
-      this.updateUserList.emit();
-      return await true
+      return await this.enableDisableUser()
     },
     onDismiss:() => true,
     disableConfirmButton: () => false,
@@ -46,7 +42,8 @@ export class UserEnableDisableComponent implements OnInit {
   }
  
   constructor(
-    private router: Router,
+    private toastService: ToastService,
+    private errorHandlerService: ErrorHandlerService,
     private userService: UserService,
     private authService: AuthService) {
   }
@@ -67,5 +64,22 @@ export class UserEnableDisableComponent implements OnInit {
     return await this.modalComponent.open()
   }
 
+  async enableDisableUser() {
+    if (!this.user.enabled) {
+      await this.userService.enable(this.user.slot).then(()=>{
+        this.toastService.showSuccess('User enabled.');
+      }).catch((err)=>{
+        this.errorHandlerService.handle(err);
+      })
+    } else if (this.user.enabled) {
+      await this.userService.disable(this.user.slot).then(()=>{
+        this.toastService.showWarning('User disabled.');
+      }).catch((err)=>{
+        this.errorHandlerService.handle(err);
+      })
+    }
+    this.updateUserList.emit();
+    return await true 
+  }
 
 }

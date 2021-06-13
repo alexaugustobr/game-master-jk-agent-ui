@@ -27,7 +27,7 @@ export class LoginFormComponent {
                    this.router.navigate(['/overview'], { replaceUrl: true });
                 },
                 error => {
-                  this.errorHandler.handle(error);
+                  console.log('error')
                 });
   }
 
