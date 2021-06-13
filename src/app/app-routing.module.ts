@@ -23,6 +23,9 @@ const routes: Routes = [
       { path: 'users', canActivate: [AuthGuard], 
         loadChildren: () => import('app/routes/user/user.module').then(m => m.UserModule) 
       },
+      { path: 'logs', canActivate: [AuthGuard], 
+        loadChildren: () => import('app/routes/log/log.module').then(m => m.LogModule) 
+      },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'forbidden', component: ForbiddenComponent },
       { path: 'page-not-found', component: PageNotFoundComponent },

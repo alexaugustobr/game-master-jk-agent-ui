@@ -15,13 +15,15 @@ import { NgbdToastGlobal } from './toast/toast-global.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MinDirective } from './validators/min.directive';
 import { MaxDirective } from './validators/max.directive';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModalModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
   ],
   declarations: [
     MessageComponent, 

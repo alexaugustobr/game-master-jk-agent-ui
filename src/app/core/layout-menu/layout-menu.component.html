@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item" routerLinkActive="active">
                         <a data-toggle="collapse">
-                            <i class="fas fa-th-list"></i>
+                            <i class="fas fa-cubes"></i>
                             <p>Plugins</p>
                             <span class="caret"></span>
                         </a>
@@ -68,13 +68,13 @@
                     </li>
                     <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/players">
-                            <i class="fas fa-th-list"></i>
+                            <i class="fas fa-user-friends"></i>
                             <p>Players</p>
                         </a>
                     </li>
                     <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/maps">
-                            <i class="fas fa-th-list"></i>
+                            <i class="fas fa-map"></i>
                             <p>Maps</p>
                         </a>
                     </li>
@@ -86,15 +86,36 @@
                     </li>
                     <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/update">
-                            <i class="fas fa-th-list"></i>
+                            <i class="fas fa-cloud-download-alt"></i>
                             <p>Updates</p>
                         </a>
                     </li>
                     <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/users" >
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user-cog"></i>
                             <p>Users</p>
                         </a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active">
+                        <a data-toggle="collapse">
+                            <i class="fas fa-file-alt"></i>
+                            <p>Logs</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse show" id="logSubMenu">
+                            <ul class="nav nav-collapse"  >
+                                <li routerLinkActive="active">
+                                    <a routerLink="/logs/game" >
+                                        <span class="sub-item">Game</span>
+                                    </a>
+                                </li>
+                                <li routerLinkActive="active">
+                                    <a routerLink="/logs/admin" >
+                                        <span class="sub-item">Admin</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/power-options">
