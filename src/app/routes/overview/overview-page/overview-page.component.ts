@@ -20,10 +20,6 @@ export class OverviewPageComponent implements OnInit {
   
   links = [
     {
-      description: "Servers",
-      href: "/"
-    },
-    {
       description: "Overview",
       href: "/"
     }

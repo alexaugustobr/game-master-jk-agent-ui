@@ -18,7 +18,6 @@ import { LayoutMenuComponent } from './layout-menu/layout-menu.component'
 import { UserService } from "./../routes/user/user.service";
 import { ToastService } from 'app/shared/toast/toast.service';
 import { FormsModule } from '@angular/forms';
-import { LogModule } from 'app/routes/log/log.module';
 
 registerLocaleData(localePt);
 
@@ -27,8 +26,7 @@ registerLocaleData(localePt);
     CommonModule,
     RouterModule,
     HttpClientModule,
-    FormsModule,
-    LogModule,
+    FormsModule
   ],
   declarations: [
     PageNotFoundComponent,

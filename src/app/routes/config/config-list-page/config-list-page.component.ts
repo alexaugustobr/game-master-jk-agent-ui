@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigListPageComponent implements OnInit {
 
+
+  links = [
+    {
+      description: "Config",
+      href: "/config"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

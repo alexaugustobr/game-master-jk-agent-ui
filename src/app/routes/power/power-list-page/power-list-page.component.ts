@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PowerListPageComponent implements OnInit {
 
+  links = [
+    {
+      description: "Power Options",
+      href: "/powerlogs"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

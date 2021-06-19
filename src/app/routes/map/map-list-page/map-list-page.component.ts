@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapListPageComponent implements OnInit {
 
+  links = [
+    {
+      description: "Maps",
+      href: "/maps"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
