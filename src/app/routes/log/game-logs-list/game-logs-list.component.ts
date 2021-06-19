@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileService } from 'app/core/file.service';
 import { GameLogFile } from 'app/core/model';
 import { LogService } from '../log.service';
 
@@ -13,11 +14,22 @@ export class GameLogsListComponent implements OnInit {
     
   ]
 
-  constructor(private logService: LogService) { }
+  constructor(
+      private logService: LogService, 
+      private fileService: FileService
+    ) { }
 
   ngOnInit(): void {
     this.logService.listAllGameLogFiles()
-        .then(gameLogs => this.gameLogs = gameLogs);
+        .then(gameLogs => this.gameLogs = gameLogs)
+        
+  }
+
+  download(file: GameLogFile) {
+    this.logService.download(file)
+      .subscribe((res: any) => {
+        this.fileService.saveFile(res, file.name);
+      });
   }
 
 }

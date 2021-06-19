@@ -19,6 +19,7 @@ import { UserService } from "./../routes/user/user.service";
 import { ToastService } from 'app/shared/toast/toast.service';
 import { FormsModule } from '@angular/forms';
 import { LogService } from 'app/routes/log/log.service';
+import { FileService } from './file.service';
 
 registerLocaleData(localePt);
 
@@ -49,6 +50,7 @@ registerLocaleData(localePt);
     AuthService,
     ToastService,
     Title,
+    FileService,
     { provide: LOCALE_ID, useValue: 'en-US' }
   ]
 })
