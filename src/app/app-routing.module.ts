@@ -27,6 +27,21 @@ const routes: Routes = [
       { path: 'logs', canActivate: [AuthGuard], 
         loadChildren: () => import('app/routes/log/log.module').then(m => m.LogModule) 
       },
+      { path: 'players',
+        canActivate: [AuthGuard], loadChildren: () => import('app/routes/player/player.module').then(m => m.PlayerModule) 
+      },
+      { path: 'maps',
+        canActivate: [AuthGuard], loadChildren: () => import('app/routes/map/map.module').then(m => m.MapModule) 
+      },
+      { path: 'config',
+        canActivate: [AuthGuard], loadChildren: () => import('app/routes/config/config.module').then(m => m.ConfigModule) 
+      },
+      { path: 'power-options',
+        canActivate: [AuthGuard], loadChildren: () => import('app/routes/power/power.module').then(m => m.PowerModule) 
+      },
+      { path: 'updates',
+        canActivate: [AuthGuard], loadChildren: () => import('app/routes/update/update.module').then(m => m.UpdateModule) 
+      },
       { path: '', redirectTo: 'overview', pathMatch: 'full' }
     ]
   },
