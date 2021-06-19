@@ -9,6 +9,10 @@ export class PluginRtvPageComponent implements OnInit {
 
   links = [
     {
+      description: "Plugins",
+      href: "/plugins"
+    },
+    {
       description: "RTV",
       href: "/plugins/rtv"
     }
