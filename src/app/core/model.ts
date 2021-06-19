@@ -12,6 +12,11 @@ export class User {
   }
 }
 
+export class GameLogFile {
+  dateTime: Date;
+  name: string;
+}
+
 export class UserPasswordUpdate {
   password: string;
 }

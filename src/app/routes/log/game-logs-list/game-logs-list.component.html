@@ -10,7 +10,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let log of gameLogs">
-                <td>{{ log.date }}</td>
+                <td>{{ log.dateTime | date:'yyyy/MM/dd hh:mm' }}</td>
                 <td>{{ log.name }}</td>
                 <td>
                     <!-- <app-user-password-change [user]="user"></app-user-password-change>

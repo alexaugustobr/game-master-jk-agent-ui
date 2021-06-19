@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GameLogFile } from 'app/core/model';
+import { LogService } from '../log.service';
 
 @Component({
   selector: 'app-game-logs-list',
@@ -7,20 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameLogsListComponent implements OnInit {
 
-  gameLogs: any = [
-    {
-      date: "2020-01-01 10:13",
-      name: "log.txt"
-    },
-    {
-      date: "2020-01-01 10:13",
-      name: "log-292929.zip"
-    }
+  gameLogs: GameLogFile[] = [
+    
   ]
 
-  constructor() { }
+  constructor(private logService: LogService) { }
 
   ngOnInit(): void {
+    this.logService.listAllGameLogFiles()
+        .then(gameLogs => this.gameLogs = gameLogs);
   }
 
 }
