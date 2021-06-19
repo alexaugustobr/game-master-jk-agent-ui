@@ -48,11 +48,7 @@ export class UserPasswordChangeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.authService.isUserAuthenticated(this.user.slot)) {
-      this.enabled = false;
-    } else {
-      this.enabled = this.user.enabled
-    }
+    this.enabled = this.user.enabled
   }
 
   async openModal() {
