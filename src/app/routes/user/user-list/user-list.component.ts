@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from "./../user.service";
 
 import { ErrorHandlerService } from './../../../core/error-handler.service';
+import { User } from 'app/core/model';
 
 @Component({
   selector: 'app-user-list',
@@ -13,7 +14,7 @@ import { ErrorHandlerService } from './../../../core/error-handler.service';
 })
 export class UserListComponent implements OnInit {
 
-  users : any = [];
+  users : User[] = [];
 
   constructor(
     private userService: UserService,

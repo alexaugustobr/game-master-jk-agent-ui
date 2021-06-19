@@ -6,6 +6,10 @@ export class User {
   permissions: number;
   enabled: boolean;
   authdata?: string;
+
+  isRcon() : boolean {
+    return this.type == 'RCON'
+  }
 }
 
 export class UserPasswordUpdate {

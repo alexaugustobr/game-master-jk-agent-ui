@@ -42,9 +42,12 @@ export class UserService {
       })
   }
 
-  findAll(): Promise<any> {
-    return this.http.get(this.url)
-      .toPromise();
+  findAll(): Promise<User[]> {
+    return this.http.get<User[]>(this.url)
+      .toPromise()
+      .then(dataList => {
+        return dataList.map(dataObj => Object.assign(new User(), dataObj))
+      })
   }
 
   enable(slot: number) {
