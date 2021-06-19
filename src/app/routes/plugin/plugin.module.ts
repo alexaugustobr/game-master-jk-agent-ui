@@ -7,6 +7,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { PluginEloPageComponent } from "./plugin-elo-page/plugin-elo-page.component";
 import { PluginRtvPageComponent } from "./plugin-rtv-page/plugin-rtv-page.component";
 import { PluginRoutingModule } from './plugin-routing.module';
+import { PluginRtvConfigComponent } from './plugin-rtv-config/plugin-rtv-config.component';
+import { PluginRtvMapListComponent } from './plugin-rtv-map-list/plugin-rtv-map-list.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import { PluginRoutingModule } from './plugin-routing.module';
   ],
   declarations: [
     PluginEloPageComponent,
-    PluginRtvPageComponent
+    PluginRtvPageComponent,
+    PluginRtvConfigComponent,
+    PluginRtvMapListComponent
   ],
   exports: [
     

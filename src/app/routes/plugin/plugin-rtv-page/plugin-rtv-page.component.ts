@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PluginRtvPageComponent implements OnInit {
 
+  links = [
+    {
+      description: "RTV",
+      href: "/plugins/rtv"
+    }
+  ]
+  
   constructor() { }
 
   ngOnInit(): void {
