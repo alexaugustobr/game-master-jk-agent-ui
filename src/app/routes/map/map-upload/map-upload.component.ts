@@ -1,21 +1,19 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ErrorHandlerService } from 'app/core/error-handler.service';
-import { FileService } from 'app/core/file.service';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { ModalConfig } from 'app/shared/modal/modal.config';
 import { ToastService } from 'app/shared/toast/toast.service';
-import { ConfigService } from '../config.server';
+import { MapService } from '../map.service';
 
 @Component({
-  selector: 'app-config-file-upload-download',
-  templateUrl: './config-file-upload-download.component.html',
-  styleUrls: ['./config-file-upload-download.component.css']
+  selector: 'app-map-upload',
+  templateUrl: './map-upload.component.html',
+  styleUrls: ['./map-upload.component.css']
 })
-export class ConfigFileUploadDownloadComponent implements OnInit {
+export class MapUploadComponent implements OnInit {
 
   @ViewChild('modal') private modalComponent!: ModalComponent;
   @ViewChild('file') private fileInput: ElementRef;
-
 
   modalConfig : ModalConfig = {
     modalTitle: "Upload Config",
@@ -32,37 +30,31 @@ export class ConfigFileUploadDownloadComponent implements OnInit {
     hideConfirmButton: () => false,
     hideDismissButton: () => false,
   }
-
+  
   file: File;
   progress = 0;
   isUploading = false;
 
   constructor(
-    private configServer: ConfigService, 
-    private fileService: FileService,
+    private mapService : MapService,
     private toastService: ToastService,
     private errorHandlerService: ErrorHandlerService
     ) { }
-    
 
   ngOnInit(): void {
-    
+  }
+
+  async openMapUploadModal() {
+    return await this.modalComponent.open()
   }
 
   handleFileInput(files: FileList) {
     this.file = files.item(0);
   }
 
-  download() {
-    this.configServer.download()
-      .subscribe((res: any) => {
-        this.fileService.saveFile(res, 'server.cfg');
-      });
-  }
-
   async onUpload() {
     this.isUploading = true;
-    await this.configServer.upload(this.file)
+    await this.mapService.upload(this.file)
     .toPromise()
     .then(resp => this.toastService.showSuccess('Upload completed.'))
     .catch((err)=>{
@@ -74,7 +66,4 @@ export class ConfigFileUploadDownloadComponent implements OnInit {
     return true
   }
 
-  async openUploadModal() {
-    return await this.modalComponent.open()
-  }
 }

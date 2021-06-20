@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GameMap } from 'app/core/model';
+import { MapService } from '../map.service';
 
 @Component({
   selector: 'app-map-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapListComponent implements OnInit {
 
-  constructor() { }
+  maps : GameMap[] = []
+
+  constructor(private mapService : MapService) { }
 
   ngOnInit(): void {
+    this.loadMaps()
+  }
+
+  loadMaps() {
+    this.mapService.listAll()
+        .then(maps => this.maps = maps);
   }
 
 }

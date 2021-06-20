@@ -1,0 +1,13 @@
+<button (click)="openMapUploadModal()" class="btn btn-secondary btn-round">Upload Map</button>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <label for="inputFile">Map</label>
+                <input #file required type="file" class="form-control-file" accept=".pk3"
+                       id="inputFile" name="file" single (change)="handleFileInput($event.target.files)">
+            </div>
+        </fieldset>
+    </form>
+</modal>

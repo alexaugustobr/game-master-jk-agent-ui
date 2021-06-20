@@ -17,6 +17,11 @@ export class GameLogFile {
   name: string;
 }
 
+export class GameMap {
+  createdAt: Date;
+  name: string;
+}
+
 export class UserPasswordUpdate {
   password: string;
 }

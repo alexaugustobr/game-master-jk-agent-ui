@@ -4,20 +4,24 @@
             <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Created At</th>
+                <!-- <th scope="col">Actions</th> -->
             </tr>
             </thead>
             <tbody>
-            <tr ngFor="let log of gameLogs">
+            <tr *ngFor="let map of maps">
                 <td>
-                    mb2_doft
+                    {{map.name}}
                 </td>
                 <td>
+                    {{map.createdAt | date }} 
+                </td>
+                <!-- <td>
                     <button class="btn btn-danger mr-3">
                         <span class="btn-label"><i class="fas fa-trash"></i></span>
                         Delete
                     </button>
-                </td>
+                </td> -->
             </tr>
             </tbody>
         </table>

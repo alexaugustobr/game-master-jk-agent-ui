@@ -20,6 +20,7 @@ import { ToastService } from 'app/shared/toast/toast.service';
 import { FormsModule } from '@angular/forms';
 import { LogService } from 'app/routes/log/log.service';
 import { FileService } from './file.service';
+import { MapService } from 'app/routes/map/map.service';
 
 registerLocaleData(localePt);
 
@@ -51,6 +52,7 @@ registerLocaleData(localePt);
     ToastService,
     Title,
     FileService,
+    MapService,
     { provide: LOCALE_ID, useValue: 'en-US' }
   ]
 })

@@ -3,14 +3,14 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">Date</th>
+                <th scope="col">Created At</th>
                 <th scope="col">Name</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let log of gameLogs">
-                <td>{{ log.dateTime | date:'yyyy/MM/dd hh:mm' }}</td>
+                <td>{{ log.dateTime | date  }}</td>
                 <td>{{ log.name }}</td>
                 <td>
                     <!-- <app-user-password-change [user]="user"></app-user-password-change>
