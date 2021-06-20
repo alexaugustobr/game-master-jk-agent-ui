@@ -16,7 +16,7 @@ export class MapUploadComponent implements OnInit {
   @ViewChild('file') private fileInput: ElementRef;
 
   modalConfig : ModalConfig = {
-    modalTitle: "Upload Config",
+    modalTitle: "Upload Map",
     dismissButtonLabel: "Cancel",
     confirmButtonLabel: "Upload",
     shouldConfirm: () => true,

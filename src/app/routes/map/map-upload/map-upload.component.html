@@ -7,6 +7,9 @@
                 <label for="inputFile">Map</label>
                 <input #file required type="file" class="form-control-file" accept=".pk3"
                        id="inputFile" name="file" single (change)="handleFileInput($event.target.files)">
+                <p class="card-text text-danger">
+                    In order to update an map, the server must be restarted after the upload.
+                </p>
             </div>
         </fieldset>
     </form>
