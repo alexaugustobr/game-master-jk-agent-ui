@@ -19,6 +19,7 @@ import { UserEnableDisableComponent } from './user-enable-disable/user-enable-di
     SharedModule,
     CommonModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     UserRoutingModule
   ],

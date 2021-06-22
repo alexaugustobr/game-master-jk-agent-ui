@@ -1,62 +1,95 @@
-
 <div class="card border-dark mb-3">
     <div class="card-header">
         <div class="card-title mb-0">Edit User</div>
     </div>
     <div class="card-body">
-        <form id="form" #form="ngForm" autocomplete="off" (ngSubmit)="save(form)">
+        <form id="f"
+              autocomplete="off"
+              (ngSubmit)="save()"
+              [formGroup]="userForm">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label >Slot</label>
-                        <select class="form-control form-control"  disabled="">
-                            <option text="user.slot">0</option>
+                        <label>Slot</label>
+                        <select class="form-control" 
+                                formControlName="slot">
+                            <option *ngFor="let slot of allSlots" 
+                                    [ngValue]="slot">
+                                {{slot}}
+                            </option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label >Type</label>
-                        <select class="form-control form-control"  disabled="">
-                            <option text="user.type">0</option>
+                        <label>Type</label>
+                        <select class="form-control" 
+                                formControlName="type">
+                            <option *ngFor="let type of allUserTypes" 
+                                    [ngValue]="type">
+                                {{type}}
+                            </option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="" 
-                            name="password" #password="ngModel" [(ngModel)]="user.password" [disabled]="canNotChangePassword"
-                            required minlength="3" maxlength="25" [class.is-invalid]="password.invalid && password.touched">
-                        <div *ngIf="password.hasError('required') && password.touched"
-                            class="invalid-feedback">The password must not be blank.</div>
-                        <div *ngIf="password.hasError('minlength') && password.touched"
-                            class="invalid-feedback">The password must contain at least 3 characters.</div>
-                            <div *ngIf="password.hasError('maxlength') && password.touched"
-                            class="invalid-feedback">The password must only contain a maximum of 25 characters.</div>
+                        <input type="password"
+                               class="form-control"
+                               formControlName="password"
+                               [class.is-invalid]="userForm.get('password').invalid">
+                        <app-message [control]="userForm.get('password')"
+                                     error="required" 
+                                     text="The password must not be blank.">
+                        </app-message>
+                        <app-message [control]="userForm.get('password')"
+                                     error="minlength" 
+                                     text="The password must contain at least 3 characters.">
+                        </app-message>
+                        <app-message [control]="userForm.get('password')"
+                                     error="maxlength" 
+                                     text="The password must only contain a maximum of 10 characters.">
+                        </app-message>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Name" 
-                            name="username" #username="ngModel" [(ngModel)]="user.username" disabled
-                            required minlength="5">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Name"
+                               formControlName="username">
                     </div>
                     <div class="form-group">
                         <label>Permissions</label>
-                        <input type="number" [min]="0" [max]="65535" class="form-control" placeholder="65535"
-                            name="permissions"  #permissions="ngModel" [(ngModel)]="user.permissions" required
-                            [class.is-invalid]="permissions.invalid && permissions.touched">
-                        <div *ngIf="permissions.hasError('required') && permissions.touched"
-                            class="invalid-feedback">The permissions must be a number.</div>
-                        <div *ngIf="permissions.hasError('min') && permissions.touched"
-                            class="invalid-feedback">The permissions must be bigger than 0.</div>
-                        <div *ngIf="permissions.hasError('max') && permissions.touched"
-                            class="invalid-feedback">The permissions must be lesser than 65535.</div>
+                        <input type="number"
+                               class="form-control"
+                               placeholder="65535"
+                               [class.is-invalid]="userForm.get('permissions').invalid  
+                                    && userForm.get('permissions').touched"
+                               formControlName="permissions">
+                        <app-message [control]="userForm.get('permissions')"
+                                     error="required"
+                                     text="The permissions must be a number.">
+                        </app-message>
+                        <app-message [control]="userForm.get('permissions')"
+                                     error="min"
+                                     text="The permissions must be bigger than 0.">
+                        </app-message>
+                        <app-message [control]="userForm.get('permissions')"
+                                     error="max"
+                                     text="The permissions must be lesser than 65535.">
+                        </app-message>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1" checked=""
-                                name="enabled" #enabled="ngModel" [(ngModel)]="user.enabled" [disabled]="canNotEnable"
-                                required>
-                            <label class="custom-control-label" for="customCheck1">Enabled</label>
+                            <input type="checkbox"
+                                   id="checkbox-user-enable"
+                                   class="custom-control-input"
+                                   name="enabled"
+                                   formControlName="enabled"
+                                   required>
+                            <label for="checkbox-user-enable"
+                                   class="custom-control-label">
+                                Enabled
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -64,9 +97,11 @@
         </form>
     </div>
     <div class="card-action d-flex justify-content-end">
-        <a routerLink="/users" class="btn btn-danger mr-3">Cancel</a>
-        <button form="form" class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <a routerLink="/users"
+           class="btn btn-danger mr-3">Cancel</a>
+        <button form="f"
+                class="btn btn-primary"
+                [disabled]="userForm.invalid"
+                type="submit">Submit</button>
     </div>
 </div>
-
-
