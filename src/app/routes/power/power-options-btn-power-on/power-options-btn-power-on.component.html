@@ -1,1 +1,16 @@
-<a style="margin-right: 15px;" href="/server/power-options/poweron" class="btn btn-info">Power On</a>
+<button 
+   (click)="openModal()"
+   style="margin-right: 15px;" 
+   class="btn btn-info">Power On</button>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <p class="card-text">
+                    {{modalMessage}}
+                </p>
+            </div>
+        </fieldset>
+    </form>
+</modal>
