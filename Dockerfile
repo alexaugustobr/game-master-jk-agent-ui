@@ -3,7 +3,7 @@
 FROM node:alpine AS my-app-build
 WORKDIR /app
 COPY . .
-RUN npm ci && ng build --prod --configuration production
+RUN npm ci && npm install -g angular-cli && ng build --prod --configuration production
 
 # stage 2
 
