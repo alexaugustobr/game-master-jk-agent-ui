@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "algamoney-ui": {
+    "chz-jk-admin-ag-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "algamoney-ui:build"
+            "browserTarget": "chz-jk-admin-ag-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "algamoney-ui:build:production"
+              "browserTarget": "chz-jk-admin-ag-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "algamoney-ui:build"
+            "browserTarget": "chz-jk-admin-ag-ui:build"
           }
         },
         "test": {
@@ -108,7 +108,7 @@
         }
       }
     },
-    "algamoney-ui-e2e": {
+    "chz-jk-admin-ag-ui-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -117,7 +117,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "algamoney-ui:serve"
+            "devServerTarget": "chz-jk-admin-ag-ui:serve"
           }
         },
         "lint": {
@@ -132,7 +132,7 @@
       }
     }
   },
-  "defaultProject": "algamoney-ui",
+  "defaultProject": "chz-jk-admin-ag-ui",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
