@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ServerService } from '../server.service';
 
 @Component({
   selector: 'app-server-status',
@@ -9,9 +10,14 @@ export class ServerStatusComponent implements OnInit {
 
   @Input() server:any = {}
 
-  constructor() { }
+  constructor(private serverService: ServerService ) { }
 
   ngOnInit(): void {
+    this.loadServer();
+  }
+  
+  loadServer() {
+    this.serverService.load().then((server)=> this.server = server);
   }
 
 }

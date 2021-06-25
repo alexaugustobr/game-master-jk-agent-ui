@@ -7,6 +7,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { OverviewRoutingModule } from './overview-routes.module'
 
 import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { ServerModule } from '../server/server.module';
 
 // import { PlayerModule } from "../player/player.module";
 // import { UserModule } from "../user/user.module";
@@ -22,7 +23,7 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
 
     // PlayerModule,
     // UserModule,
-    // ServerModule,
+    ServerModule,
   ],
   declarations: [
     OverviewPageComponent

@@ -25,3 +25,12 @@ export class GameMap {
 export class UserPasswordUpdate {
   password: string;
 }
+
+export class GameServer {
+  address: string;
+  nameWithoutColors: string;
+  gameNameAndVersion: string;
+  playersCount: number;
+  maxSlots: number;
+  mapName: number;
+}

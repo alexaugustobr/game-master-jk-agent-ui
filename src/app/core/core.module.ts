@@ -22,6 +22,7 @@ import { LogService } from 'app/routes/log/log.service';
 import { FileService } from './file.service';
 import { MapService } from 'app/routes/map/map.service';
 import { PowerService } from 'app/routes/power/power.service';
+import { ServerService } from 'app/routes/server/server.service';
 
 registerLocaleData(localePt);
 
@@ -55,6 +56,7 @@ registerLocaleData(localePt);
     FileService,
     MapService,
     PowerService,
+    ServerService,
     { provide: LOCALE_ID, useValue: 'en-US' }
   ]
 })
