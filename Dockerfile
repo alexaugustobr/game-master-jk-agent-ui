@@ -3,7 +3,12 @@
 FROM node:alpine AS my-app-build
 WORKDIR /app
 COPY . .
-RUN npm ci && npm run build --prod
+RUN npm ci
+#RUN npm install -g @angular/cli
+#ng build --prod
+#ng build --configuration production
+RUN npm run build
+
 
 # stage 2
 
