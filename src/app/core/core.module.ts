@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { LogService } from 'app/routes/log/log.service';
 import { FileService } from './file.service';
 import { MapService } from 'app/routes/map/map.service';
+import { PowerService } from 'app/routes/power/power.service';
 
 registerLocaleData(localePt);
 
@@ -53,6 +54,7 @@ registerLocaleData(localePt);
     Title,
     FileService,
     MapService,
+    PowerService,
     { provide: LOCALE_ID, useValue: 'en-US' }
   ]
 })

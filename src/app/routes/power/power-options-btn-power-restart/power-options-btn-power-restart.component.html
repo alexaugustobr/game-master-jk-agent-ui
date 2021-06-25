@@ -1,0 +1,16 @@
+<button 
+   (click)="openModal()"
+   style="margin-right: 15px;" 
+   class="btn btn-primary">Restart</button>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <p class="card-text">
+                    {{modalMessage}}
+                </p>
+            </div>
+        </fieldset>
+    </form>
+</modal>
