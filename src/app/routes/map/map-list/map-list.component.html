@@ -5,7 +5,7 @@
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Created At</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -16,12 +16,9 @@
                 <td>
                     {{map.createdAt | date }} 
                 </td>
-                <!-- <td>
-                    <button class="btn btn-danger mr-3">
-                        <span class="btn-label"><i class="fas fa-trash"></i></span>
-                        Delete
-                    </button>
-                </td> -->
+                <td>
+                    <app-map-delete [mapName]="map.name" (onMapDeleted)="loadMaps()"></app-map-delete>
+                </td>
             </tr>
             </tbody>
         </table>

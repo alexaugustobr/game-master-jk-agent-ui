@@ -30,4 +30,9 @@ export class MapService {
         reportProgress: true
       });
   }
+
+  delete(mapName: string) {
+    return this.http.delete(this.url + '/' + mapName)
+      .toPromise()
+  }
 }

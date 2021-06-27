@@ -5,11 +5,12 @@ import { MapRoutingModule } from './map-routing.module';
 import { MapListComponent } from './map-list/map-list.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { MapUploadComponent } from './map-upload/map-upload.component';
+import { MapDeleteComponent } from './map-delete/map-delete.component';
 
 
 
 @NgModule({
-  declarations: [MapListPageComponent, MapListComponent, MapUploadComponent],
+  declarations: [MapListPageComponent, MapListComponent, MapUploadComponent, MapDeleteComponent],
   imports: [
     CommonModule, MapRoutingModule, SharedModule
   ]
