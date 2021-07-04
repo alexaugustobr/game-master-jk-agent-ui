@@ -36,6 +36,10 @@ const routes: Routes = [
         canActivate: [AuthGuard], 
         loadChildren: () => import('app/routes/map/map.module').then(m => m.MapModule) 
       },
+      { path: 'game-files',
+        canActivate: [AuthGuard], 
+        loadChildren: () => import('app/routes/file/game-file.module').then(m => m.GameFileModule) 
+      },
       { path: 'config',
         canActivate: [AuthGuard], 
         loadChildren: () => import('app/routes/config/config.module').then(m => m.ConfigModule) 

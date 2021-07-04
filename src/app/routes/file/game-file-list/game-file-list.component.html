@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let gameFile of gameFiles">
+                <td>
+                    {{gameFile.name}}
+                </td>
+                <td>
+                    {{gameFile.createdAt | date }} 
+                </td>
+                <td>
+                    <app-game-file-delete [fileName]="gameFile.name" (onGameFileDeleted)="loadGameFiles()"></app-game-file-delete>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

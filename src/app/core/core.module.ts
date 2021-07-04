@@ -23,6 +23,7 @@ import { FileService } from './file.service';
 import { MapService } from 'app/routes/map/map.service';
 import { PowerService } from 'app/routes/power/power.service';
 import { ServerService } from 'app/routes/server/server.service';
+import { GameFileService } from 'app/routes/file/game-file.service';
 
 registerLocaleData(localePt);
 
@@ -57,6 +58,7 @@ registerLocaleData(localePt);
     MapService,
     PowerService,
     ServerService,
+    GameFileService,
     { provide: LOCALE_ID, useValue: 'en-US' }
   ]
 })

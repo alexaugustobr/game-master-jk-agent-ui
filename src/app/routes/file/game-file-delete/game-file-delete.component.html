@@ -1,0 +1,14 @@
+<button (click)="openModal()" class="btn btn-danger mr-3">
+    <span class="btn-label"><i class="fas fa-trash"></i></span>
+    Delete
+</button>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <p class="card-text ">
+                {{modalMessage}}
+            </p>
+        </fieldset>
+    </form>
+</modal>
