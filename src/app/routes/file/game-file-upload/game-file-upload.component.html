@@ -1,1 +1,16 @@
-<p>game-file-upload works!</p>
+<button (click)="openGameFileUploadModal()" class="btn btn-secondary btn-round">Upload Game File</button>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <label for="inputFile">Game File</label>
+                <input #file required type="file" class="form-control-file"
+                       id="inputFile" name="file" single (change)="handleFileInput($event.target.files)">
+                <p class="card-text text-danger">
+                    In order to update the game files, the server must be restarted after the upload.
+                </p>
+            </div>
+        </fieldset>
+    </form>
+</modal>
