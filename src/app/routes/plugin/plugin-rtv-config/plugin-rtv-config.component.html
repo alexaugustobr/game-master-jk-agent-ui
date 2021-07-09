@@ -1,1 +1,25 @@
-<p>plugin-rtv-config works!</p>
+<div class="card">
+    <h3 class="card-header bg-dark">Config File</h3>
+    <div class="card-body">
+        <p class="card-text">
+            Download the RTV config file or upload a new one.
+        </p>
+        <p class="card-text text-danger">
+            In order to update the RTV config, the RTV must be restarted after the upload.
+        </p>
+        <button (click)="download()" class="btn btn-link card-link">Download</button>
+        <button (click)="openUploadModal()" class="btn btn-primary ml-3">Upload</button>
+    </div>
+</div>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <label for="inputFile">File</label>
+                <input #file required type="file" class="form-control-file" accept=".cfg"
+                id="inputFile" name="file" single (change)="handleFileInput($event.target.files)">
+            </div>
+        </fieldset>
+    </form>
+</modal>
