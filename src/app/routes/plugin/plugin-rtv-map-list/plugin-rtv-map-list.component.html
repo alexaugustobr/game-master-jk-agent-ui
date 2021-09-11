@@ -1,1 +1,29 @@
-<p>plugin-rtv-map-list works!</p>
+<div class="card">
+    <h3 class="card-header bg-dark">Map list</h3>
+    <div class="card-body">
+        <p class="card-text">
+            Configure the map list, add or remove the available maps.
+        </p>
+        <p-pickList [source]="availableMaps" [target]="selectedMaps"
+                    sourceHeader="Available" targetHeader="Selected" dragdrop="true"
+                    [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="name"
+                    sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name">
+            <ng-template let-map pTemplate="item">
+                <div class="card" style="max-width: 540px;margin-bottom: 5px; ;padding: 0px;text-align: center;align-self: center;">
+                    <div class="row g-0">
+                      <div class="col-sm-6 ml-0">
+                        <img src="https://image.gametracker.com/images/maps/160x120/swjk/{{map.name}}.jpg" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-sm-6  mr-0" style="padding: 0px;text-align: center;align-self: center;">
+                        <div class="card-body">
+                          <h5 class="card-title">{{map.name}}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </ng-template>
+        </p-pickList>
+        <button (click)="openModal()" class="btn btn-secondary ml-3">Map List {{listNumber}}</button>
+    </div>
+</div>
+

@@ -4,7 +4,7 @@ import { FileService } from 'app/core/file.service';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { ModalConfig } from 'app/shared/modal/modal.config';
 import { ToastService } from 'app/shared/toast/toast.service';
-import { ConfigService } from '../config.server';
+import { ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-config-file-upload-download',

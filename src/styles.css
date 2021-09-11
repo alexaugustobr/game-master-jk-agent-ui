@@ -1,0 +1,10 @@
+.p-button {
+    color: #fff;
+    background-color: #e95420;
+    border-color: #e95420;
+}
+.p-button:enabled:hover {
+    color: #fff;
+    background-color: #ce4414;
+    border-color: #c34113;
+}

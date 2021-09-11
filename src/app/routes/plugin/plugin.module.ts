@@ -11,6 +11,7 @@ import { PluginRtvConfigComponent } from './plugin-rtv-config/plugin-rtv-config.
 import { PluginRtvMapListComponent } from './plugin-rtv-map-list/plugin-rtv-map-list.component';
 import { PluginRtvPowerOptionsComponent } from './plugin-rtv-power-options/plugin-rtv-power-options.component';
 import { PluginRtvPowerRestartComponent } from './plugin-rtv-power-restart/plugin-rtv-power-restart.component';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { PluginRtvPowerRestartComponent } from './plugin-rtv-power-restart/plugi
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    PluginRoutingModule
+    PluginRoutingModule,
+    PickListModule
   ],
   declarations: [
     PluginEloPageComponent,
