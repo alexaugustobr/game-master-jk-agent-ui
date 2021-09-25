@@ -57,17 +57,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "chz-jk-admin-ag-ui:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "chz-jk-admin-ag-ui:build:production"
             },
             "dn": {
               "budgets": [
@@ -82,13 +71,21 @@
                   "maximumError": "8kb"
                 }
               ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.dn.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "tfs-barn": {
               "budgets": [
@@ -103,13 +100,21 @@
                   "maximumError": "8kb"
                 }
               ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.tfs-barn.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "tfs-lab": {
               "budgets": [
@@ -124,13 +129,21 @@
                   "maximumError": "8kb"
                 }
               ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.tfs-lab.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "tfs-shelter": {
               "budgets": [
@@ -145,15 +158,34 @@
                   "maximumError": "8kb"
                 }
               ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.tfs-shelter.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             }
           }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "chz-jk-admin-ag-ui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "chz-jk-admin-ag-ui:build:production"
+            }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
