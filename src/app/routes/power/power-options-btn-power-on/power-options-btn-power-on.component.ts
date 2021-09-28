@@ -43,7 +43,7 @@ export class PowerOptionsBtnPowerOnComponent implements OnInit {
   }
 
   async onCommand() {
-    await this.powerService.poweroff()
+    await this.powerService.poweron()
         .then(()=> this.toastService.showSuccess("Server is turning on"))
         .catch((error)=> this.errorHandlerService.handle(error));
     return true
