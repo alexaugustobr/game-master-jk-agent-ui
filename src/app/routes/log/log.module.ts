@@ -7,6 +7,8 @@ import { GameLogsPageComponent } from './game-logs-page/game-logs-page.component
 import { AdminLogsPageComponent } from './admin-logs-page/admin-logs-page.component';
 import { GameLogsListComponent } from './game-logs-list/game-logs-list.component';
 import { CommonModule } from "@angular/common";
+import { GameLogsTailComponent } from './game-logs-tail/game-logs-tail.component';
+import { RtvLogsTailComponent } from './rtv-logs-tail/rtv-logs-tail.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { CommonModule } from "@angular/common";
   declarations: [
     GameLogsPageComponent,
     AdminLogsPageComponent,
-    GameLogsListComponent
+    GameLogsListComponent,
+    GameLogsTailComponent,
+    RtvLogsTailComponent
   ],
   exports: [
     

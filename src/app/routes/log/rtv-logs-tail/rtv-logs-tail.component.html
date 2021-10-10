@@ -1,0 +1,33 @@
+<app-page-header title="Logs" [links]="links" >
+    <div class="ml-md-auto py-2 py-md-0">
+        <button (click)="refresh()"
+                 class="btn btn-secondary btn-round">Refresh</button>
+    </div>
+</app-page-header>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Message</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let tailMessage of tailMessages">
+                        <td>
+                            {{tailMessage.dateTime | date:'M/d/yy, h:mm:ss' }} 
+                        </td>
+                        <td>
+                            {{tailMessage.message}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

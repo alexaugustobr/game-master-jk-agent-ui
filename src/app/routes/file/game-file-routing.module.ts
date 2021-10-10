@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: GameFileListPageComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   }
 ];
 

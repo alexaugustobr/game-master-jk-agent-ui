@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
-import { GameLogFile } from './../../core/model';
+import { GameLogFile, TailMessage } from './../../core/model';
 
 @Injectable()
 export class LogService {
@@ -14,15 +14,31 @@ export class LogService {
   }
 
   listAllGameLogFiles(): Promise<GameLogFile[]> {
-    return this.http.get<GameLogFile[]>(this.url + "/games")
+    return this.http.get<GameLogFile[]>(this.url + "/game")
       .toPromise()
       .then(dataList => {
         return dataList.map(dataObj => Object.assign(new GameLogFile(), dataObj))
       });
   }
 
+  tailLog(): Promise<TailMessage[]> {
+    return this.http.get<TailMessage[]>(this.url + "/game/tail")
+      .toPromise()
+      .then(dataList => {
+        return dataList.map(dataObj => Object.assign(new GameLogFile(), dataObj))
+      });
+  }
+
+  tailRtvLog(): Promise<TailMessage[]> {
+    return this.http.get<TailMessage[]>(`${environment.apiUrl}/api/plugins/rtv/log-tail`)
+      .toPromise()
+      .then(dataList => {
+        return dataList.map(dataObj => Object.assign(new TailMessage(), dataObj))
+      });
+  }
+
   download(gameLogFile: GameLogFile) {
-    return this.http.get(this.url + "/games/" + gameLogFile.name, 
+    return this.http.get(this.url + "/game/" + gameLogFile.name, 
     { responseType: 'blob' as 'json'
       // reportProgress
       // content-length

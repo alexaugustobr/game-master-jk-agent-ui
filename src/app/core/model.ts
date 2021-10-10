@@ -17,6 +17,11 @@ export class GameLogFile {
   name: string;
 }
 
+export class TailMessage {
+  dateTime: Date;
+  message: string;
+}
+
 export class GameMap {
   createdAt: Date;
   name: string;

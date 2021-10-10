@@ -175,7 +175,6 @@
               ]
             }
           }
-          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -225,7 +224,8 @@
           }
         }
       }
-    },
+    }
+  },
     "chz-jk-admin-ag-ui-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
