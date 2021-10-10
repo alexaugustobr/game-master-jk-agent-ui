@@ -12,6 +12,7 @@ import { PluginRtvMapListComponent } from './plugin-rtv-map-list/plugin-rtv-map-
 import { PluginRtvPowerRestartComponent } from './plugin-rtv-power-restart/plugin-rtv-power-restart.component';
 import { PickListModule } from 'primeng/picklist';
 import { PluginRtvOptionsComponent } from './plugin-rtv-options/plugin-rtv-options.component';
+import { PluginRtvMapListUploadComponent } from './plugin-rtv-map-list-upload/plugin-rtv-map-list-upload.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { PluginRtvOptionsComponent } from './plugin-rtv-options/plugin-rtv-optio
     PluginRtvConfigComponent,
     PluginRtvMapListComponent,
     PluginRtvOptionsComponent,
-    PluginRtvPowerRestartComponent
+    PluginRtvPowerRestartComponent,
+    PluginRtvMapListUploadComponent
   ],
   exports: [
     

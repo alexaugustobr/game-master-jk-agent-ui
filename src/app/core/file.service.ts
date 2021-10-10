@@ -8,13 +8,10 @@ export class FileService {
 
   constructor(private http: HttpClient) { }
 
-  upload(files: Set<File>, url: string) {
+  upload(file: File, url: string) {
 
     const formData = new FormData();
-    files.forEach(file => formData.append('file', file, file.name));
-
-    // const request = new HttpRequest('POST', url, formData);
-    // return this.http.request(request);
+    formData.append('file', file, file.name)
 
     return this.http.post(url, formData, {
       observe: 'events',

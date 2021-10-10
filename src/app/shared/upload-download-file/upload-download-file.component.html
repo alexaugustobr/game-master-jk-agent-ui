@@ -1,0 +1,25 @@
+<div class="card">
+    <h3 class="card-header bg-dark">{{cardTitle}}</h3>
+    <div class="card-body">
+        <p class="card-text">
+            {{descriptionText}}
+        </p>
+        <p class="card-text text-danger">
+            {{warningText}}
+        </p>
+        <button (click)="download()" class="btn btn-link card-link">Download</button>
+        <button (click)="openUploadModal()" class="btn btn-primary ml-3">Upload</button>
+    </div>
+</div>
+
+<modal #modal [modalConfig]="modalConfig">
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <label for="inputFile">File</label>
+                <input #file required type="file" class="form-control-file" accept="{{fileExtension}}"
+                       id="inputFile" name="file" single (change)="handleFileInput($event.target.files)">
+            </div>
+        </fieldset>
+    </form>
+</modal>

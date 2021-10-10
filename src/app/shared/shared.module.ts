@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MinDirective } from './validators/min.directive';
 import { MaxDirective } from './validators/max.directive';
 import { RouterModule } from '@angular/router';
+import { UploadDownloadFileComponent } from './upload-download-file/upload-download-file.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { RouterModule } from '@angular/router';
     NgbdToastGlobal,
     MinDirective,
     MaxDirective,
+    UploadDownloadFileComponent,
   ],
   exports: [
     MessageComponent, 
@@ -44,7 +46,8 @@ import { RouterModule } from '@angular/router';
     ToastsContainer,
     NgbdToastGlobal,
     MinDirective,
-    MaxDirective
+    MaxDirective,
+    UploadDownloadFileComponent
   ]
 })
 export class SharedModule { }
