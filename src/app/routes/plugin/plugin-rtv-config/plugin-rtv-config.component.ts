@@ -55,9 +55,9 @@ export class PluginRtvConfigComponent implements OnInit {
   }
 
   download() {
-    this.pluginService.download()
+    this.pluginService.downloadConfig()
       .subscribe((res: any) => {
-        this.fileService.saveFile(res, 'server.cfg');
+        this.fileService.saveFile(res, 'rtvrtm.cfg');
       });
   }
 

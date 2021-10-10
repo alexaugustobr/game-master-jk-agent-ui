@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PluginRtvPowerOptionsComponent } from './plugin-rtv-power-options.component';
+import { PluginRtvOptionsComponent } from './plugin-rtv-options.component';
 
 describe('PluginRtvPowerOptionsComponent', () => {
-  let component: PluginRtvPowerOptionsComponent;
-  let fixture: ComponentFixture<PluginRtvPowerOptionsComponent>;
+  let component: PluginRtvOptionsComponent;
+  let fixture: ComponentFixture<PluginRtvOptionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PluginRtvPowerOptionsComponent ]
+      declarations: [ PluginRtvOptionsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PluginRtvPowerOptionsComponent);
+    fixture = TestBed.createComponent(PluginRtvOptionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

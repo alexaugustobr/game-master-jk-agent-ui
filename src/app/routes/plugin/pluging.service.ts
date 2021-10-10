@@ -13,25 +13,45 @@ export class PluginService {
   url: string;
 
   constructor(private http: HttpClient) {
-    this.url = `${environment.apiUrl}/api/v1/server-config`;
+    this.url = `${environment.apiUrl}/api/plugins/rtv`;
   }
 
     upload(file: File) {
       const formData = new FormData();
-      formData.append('file', file, 'server.cfg')
+      formData.append('file', file, 'rtvrtm.cfg')
 
-      return this.http.put(this.url + '/upload', formData, {
+      return this.http.post(this.url + '/rtvrtm', formData, {
           observe: 'events',
           reportProgress: true
         });
     }
 
-    download() {
-      return this.http.get(this.url + '/download', {
+    downloadConfig() {
+      return this.http.get(this.url + '/rtvrtm.cfg', {
           responseType: 'blob' as 'json'
           // reportProgress
           // content-length
       });
     }
+
+    downloadMap1() {
+      return this.http.get(this.url + '/maps.txt', {
+          responseType: 'blob' as 'json'
+          // reportProgress
+          // content-length
+      });
+    }
+
+    downloadMap2() {
+      return this.http.get(this.url + '/secondary_maps.txt', {
+          responseType: 'blob' as 'json'
+          // reportProgress
+          // content-length
+      });
+    }
+
+    restart() {
+      return this.http.put(this.url + '/restart', {}).toPromise();
+  }
 
 }
