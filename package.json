@@ -9,6 +9,7 @@
     "build-tfs-shelter": "ng build --configuration tfs-shelter",
     "build-tfs-barn": "ng build --configuration tfs-barn",
     "build-tfs-lab": "ng build --configuration tfs-lab",
+    "build-tfs-farm": "ng build --configuration tfs-farm",
     "build-dn": "ng build --configuration dn",
     "test": "ng test",
     "lint": "ng lint",
