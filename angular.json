@@ -58,7 +58,7 @@
                 }
               ]
             },
-            "dn": {
+            "gonk": {
               "budgets": [
                 {
                   "type": "initial",
@@ -83,7 +83,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dn.ts"
+                  "with": "src/environments/environment.gonk.ts"
                 }
               ]
             },
