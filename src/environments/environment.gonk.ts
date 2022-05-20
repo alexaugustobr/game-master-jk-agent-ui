@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://gonk-api.chozat.com',
+  apiUrl: 'https://gonkgarage-api.chozat.com',
 
-  tokenAllowedDomains: [ new RegExp('gonk-api.chozat.com') ],
+  tokenAllowedDomains: [ new RegExp('gonkgarage-api.chozat.com') ],
   tokenDisallowedRoutes: [ new RegExp('\/oauth\/token') ]
 };
