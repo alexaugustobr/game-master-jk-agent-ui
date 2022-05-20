@@ -11,6 +11,7 @@
     "build-tfs-lab": "ng build --configuration tfs-lab",
     "build-tfs-farm": "ng build --configuration tfs-farm",
     "build-dn": "ng build --configuration dn",
+    "build-gonk": "ng build --configuration gonk",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
